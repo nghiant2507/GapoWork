@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+    margin: 0 0;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./font/Inter/Inter-Regular.eot'),
+    url('./font/Inter/Inter-Regular.woff2') format('woff2'),
+    url('./font/Inter/Inter-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito-San';
+    src: url('./font/NunitoSans/NunitoSans-Bold.eot'),
+    url('./font/NunitoSans/NunitoSans-Bold.woff2') format('woff2'),
+    url('./font/NunitoSans/NunitoSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.content-1 {
+    background: url("/bg-content-1.png") no-repeat top;
+}
