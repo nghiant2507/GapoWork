@@ -5,21 +5,20 @@ export default {
     ],
     theme: {
         fontFamily: {
-            'Nunito-sans': ['Nunito-San', 'sans-serif'],
-            'Inter': ['Inter', 'sans-serif'],
+            'heading': ['Nunito-San', 'sans-serif'],
 
         },
         container: {
             sm: '540px',
             md: '768px',
             lg: '1024px',
-            xl: '1289px',
+            xl: '1290px',
         },
         screens: {
             sm: '540px',
             md: '768px',
             lg: '1024px',
-            xl: '1289px',
+            xl: '1300px',
         },
         extend: {
             translate: {
@@ -31,8 +30,6 @@ export default {
             colors: {
                 'primary': '#3AB67B',
                 'secondary': '#4D4F62',
-                'black': '#000000',
-                'white': '#FFFFFF'
             },
         },
     },
