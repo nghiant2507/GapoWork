@@ -21,6 +21,10 @@ export default {
             xl: '1290px',
         },
         extend: {
+            fontSize: {
+                'content': '15px',
+                'form': '13px'
+            },
             gridTemplateColumns: {
 
                 // Complex site-specific column configuration
@@ -39,6 +43,7 @@ export default {
             colors: {
                 'primary': '#3AB67B',
                 'secondary': '#4D4F62',
+                'gray': '#979CA5',
                 'light': {
                     'blue': '#F7F9FF',
                     'gray': '#E9E9EA',
@@ -47,6 +52,11 @@ export default {
                 'dark': {
                     'blue': '#1F2F38',
                     'primary': '#2C8E5F'
+                },
+                'form': {
+                    'red': '#E94040',
+                    'black': '#151917',
+                    'gray': '#F4F6F8'
                 },
                 'red': '#F5222D'
             },

@@ -21,6 +21,14 @@
     font-weight: 400;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Inter';
+    src: url('./font/Inter/Inter-Medium.eot'),
+    url('./font/Inter/Inter-Medium.woff2') format('woff2'),
+    url('./font/Inter/Inter-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'Nunito-San';
@@ -37,4 +45,24 @@ body {
 
 .content-1 {
     background: url("/images/background/bg-content-1.png") no-repeat top;
+}
+
+tbody tr:nth-child(2n){
+    background-color: white;
+}
+tbody tr:nth-child(2n+1){
+    background-color: #F7F9FF;
+}
+#modal{
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+.modal-hidden {
+    display: none;
+    transform: translateY(-100%) translateX(-100%) translateY(0);
+
+}
+.modal-active {
+    display: block;
+    opacity: 1;
+    transform-origin: center;
 }
