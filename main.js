@@ -22,3 +22,29 @@ if (modal) {
 }
 
 
+// document.getElementById("submitBtn").addEventListener("click", function(event) {
+//     event.preventDefault();
+//     var name = document.getElementById("nameInput").value;
+//     var email = document.getElementById("emailInput").value;
+//     var phone = document.getElementById("phoneInput").value;
+//     var title = document.getElementById("titleInput").value;
+//     var company = document.getElementById("companyInput").value;
+//     var scale = document.getElementById("scaleInput").value;
+//
+//     fetch("https://docs.google.com/forms/d/e/1FAIpQLSfyrjkeAw8-WkoLGrs5CqeWTXgvhoq4c4H5cKV0h6MhOTpc4g/viewform?usp=sf_link", {
+//         method: "POST",
+//         body: new URLSearchParams({
+//             'entry.766907353': name,
+//         }),
+//         mode: "no-cors",
+//         redirect: "follow",
+//         referrer: "no-referrer"
+//     })
+//         .then(response => {
+//             console.log("Form submitted successfully");
+//         })
+//         .catch(error => {
+//             console.error("Error submitting form:", error);
+//         });
+// });
+//
