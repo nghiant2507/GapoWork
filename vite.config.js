@@ -4,7 +4,7 @@ import handlebars from 'vite-plugin-handlebars';
 export default {
     plugins: [
         handlebars({
-            partialDirectory: resolve(__dirname, 'components'),
+            partialDirectory: resolve(__dirname, 'components/vi'),
         }),
     ],
 };
