@@ -1,8 +1,11 @@
+import 'promise-polyfill/src/polyfill';
+import 'whatwg-fetch'
+
 import './style.css'
 
-var modal = document.getElementById('modal')
-var buttonModal = document.querySelectorAll('.button-modal')
-var clostModal = document.querySelectorAll('.close')
+const modal = document.getElementById('modal')
+const buttonModal = document.querySelectorAll('.button-modal')
+const closeModal = document.querySelectorAll('.close')
 
 if (modal) {
     buttonModal.forEach((item) => {
@@ -12,7 +15,7 @@ if (modal) {
         });
     });
 
-    clostModal.forEach((item) => {
+    closeModal.forEach((item) => {
         item.addEventListener("click", function (e) {
             modal.classList.remove('modal-active');
             modal.classList.add('modal-hidden');

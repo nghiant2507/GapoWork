@@ -8,6 +8,12 @@
     }
 }
 
+@layer components {
+    .page-heading {
+        @apply font-heading text-black text-2xl font-bold -tracking-[.03em] md:text-4xl xl:text-5xl xl:leading-normal
+    }
+}
+
 * {
     box-sizing: border-box;
     margin: 0 0;
