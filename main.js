@@ -1,7 +1,7 @@
 import 'promise-polyfill/src/polyfill';
-import 'whatwg-fetch'
+import 'whatwg-fetch';
 
-import './style.css'
+import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     const formElements = {
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         phone: document.getElementById('errorPhone'),
         title: document.getElementById('errorTitle'),
         company: document.getElementById('errorCompany'),
-        scale: document.getElementById('errorScale')
     };
 
     const errorText = "Không được để trống ";
@@ -83,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     formElements.phone.addEventListener('blur', (e) => validatePhone(e.target.value));
     formElements.title.addEventListener('blur', (e) => validationInput(e.target.value, errors.title, formElements.title));
     formElements.company.addEventListener('blur', (e) => validationInput(e.target.value, errors.company, formElements.company));
-    formElements.scale.addEventListener('blur', (e) => validationInput(e.target.value, errors.scale, formElements.scale));
 
     formElements.buttonSubmit.addEventListener("click", (event) => {
         event.preventDefault();
@@ -93,14 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalSuccess = document.getElementById('modal-success');
         const modalForm = document.getElementById('modal-form');
 
-        if (
-            validationInput(formElements.name.value, errors.name, formElements.name) &&
-            validateEmail(formElements.email.value) &&
-            validatePhone(formElements.phone.value) &&
-            validationInput(formElements.title.value, errors.title, formElements.title) &&
-            validationInput(formElements.company.value, errors.company, formElements.company) &&
-            validationInput(formElements.scale.value, errors.scale, formElements.scale)
-        ) {
+        const isNameValid = validationInput(formElements.name.value, errors.name, formElements.name);
+        const isEmailValid = validateEmail(formElements.email.value);
+        const isPhoneValid = validatePhone(formElements.phone.value);
+        const isTitleValid = validationInput(formElements.title.value, errors.title, formElements.title);
+        const isCompanyValid = validationInput(formElements.company.value, errors.company, formElements.company);
+
+        if (isNameValid && isEmailValid && isPhoneValid && isTitleValid && isCompanyValid) {
             isLoading.style.display = "block";
             isContentSubmit.style.display = 'none';
 
@@ -135,8 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
 // Modal
 
 
