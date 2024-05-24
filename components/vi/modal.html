@@ -14,7 +14,7 @@
                 data-modal-wrapper
                 data-class-out="opacity-0 translate-y-5"
                 data-class-in="opacity-100 translate-y-0"
-                class="opacity-0 translate-y-5 w-full z-50 lg:max-w-[1000px] max-h-screen scrolling-touch transition-all duration-300 bg-white flex flex-col transform shadow-xl rounded-md m-5">
+                class="h-full lg:h-auto opacity-0 translate-y-5 w-full z-50 lg:max-w-[1000px] max-h-screen scrolling-touch transition-all duration-300 bg-white flex flex-col transform shadow-xl rounded-md xl:m-5">
             <div class="w-full lg:flex relative mx-auto bg-white lg:bg-dark-blue ">
                 <button
                         data-modal-close
@@ -38,7 +38,7 @@
                     </div>
                     <img src="/images/background/bg-modal.png" alt="Gapo Work" class="w-full h-auto rounded-xl">
                 </div>
-                <div class="pt-10 pb-12 px-6 bg-white lg:flex-1">
+                <div class="pt-20 xl:pt-10 pb-12 px-6 bg-white lg:flex-1">
                     <p class="text-lg font-medium text-[#151917]">Nhập thông tin đăng ký</p>
                     <form class="grid grid-cols-2 gap-4 mt-6 text-form-black text-form font-semibold">
                         <label class="col-span-2 flex flex-col gap-1">
@@ -85,7 +85,7 @@
                             </select>
                             <span id="errorScale" class="text-red font-normal text-xs"></span>
                         </label>
-                        <button id="submitBtn" type="button" class="flex justify-center items-center rounded-xl col-span-2 w-full py-3 bg-primary text-white mt-2 hover:bg-dark-primary">
+                        <button id="submitBtn" type="button" class="flex justify-center items-center rounded-lg col-span-2 w-full py-3 bg-primary text-white mt-2 hover:bg-dark-primary">
                             <span id="isLoading" class="hidden border-white h-6 w-6 animate-spin rounded-full border-4 border-t-primary" ></span>
                             <span id="content-submit">Gửi thông tin</span>
                         </button>

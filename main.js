@@ -3,123 +3,137 @@ import 'whatwg-fetch'
 
 import './style.css'
 
+document.addEventListener('DOMContentLoaded', () => {
+    const formElements = {
+        name: document.getElementById("nameInput"),
+        email: document.getElementById("emailInput"),
+        phone: document.getElementById("phoneInput"),
+        title: document.getElementById("titleInput"),
+        company: document.getElementById("companyInput"),
+        scale: document.getElementById("scaleInput"),
+        buttonSubmit: document.getElementById("submitBtn"),
+        elementSuccess: document.getElementById("button-success")
+    };
 
-var name = document.getElementById("nameInput");
-var email = document.getElementById("emailInput");
-var phone = document.getElementById("phoneInput");
-var title = document.getElementById("titleInput");
-var company = document.getElementById("companyInput");
-var scale = document.getElementById("scaleInput");
-var buttonSubmit = document.getElementById("submitBtn");
-var elementSuccess = document.getElementById("button-success");
+    const errors = {
+        name: document.getElementById('errorName'),
+        email: document.getElementById('errorEmail'),
+        phone: document.getElementById('errorPhone'),
+        title: document.getElementById('errorTitle'),
+        company: document.getElementById('errorCompany'),
+        scale: document.getElementById('errorScale')
+    };
 
-var error = "Không được để trống ";
+    const errorText = "Không được để trống ";
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phoneRegex = /^0\d{9,10}$/;
 
-if(elementSuccess){
-    elementSuccess.addEventListener("click",()=>{
-        const modalSuccsess = document.getElementById('modal-success');
-        modalSuccsess.classList.add('hidden')
-    })
-}
-const validationInput = (values, element, className) => {
-    if (values === "") {
-        element.innerText = error
-        className.style.borderColor = "red";
-        element.style.display = "block"
-    } else {
-        className.style.borderColor = "#F4F6F8"
-        element.style.display = "none"
+    const validationInput = (value, errorElement, inputElement) => {
+        if (!value) {
+            errorElement.innerText = errorText;
+            inputElement.style.borderColor = "red";
+            errorElement.style.display = "block";
+            return false;
+        }
+        errorElement.style.display = "none";
+        inputElement.style.borderColor = "#F4F6F8";
+        return true;
+    };
+
+    if (formElements.elementSuccess) {
+        formElements.elementSuccess.addEventListener("click", () => {
+            document.getElementById('modal-success').classList.add('hidden');
+            document.getElementById('overlay-success').style.opacity = 0;
+            document.getElementById('wrapper-success').style.opacity = 0;
+        });
     }
-}
-name.addEventListener('blur', (e) => {
-    const values = e.target.value;
-    const element = document.getElementById('errorName')
-    validationInput(values, element, name)
-})
 
-email.addEventListener('blur', (e) => {
-    const values = e.target.value;
-    const element = document.getElementById('errorEmail')
-    var emaiRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (values === "") {
-        element.innerText = error
-        phone.style.borderColor = "red";
-        element.style.display = "block"
-    } else if(!emaiRegex.test(values)){
-        element.innerText = 'Email không hợp lệ'
-    }else{
-        phone.style.borderColor = "#F4F6F8"
-        element.style.display = "none"
-    }
-})
+    const validateEmail = (value) => {
+        if (!value) {
+            errors.email.innerText = errorText;
+        } else if (!emailRegex.test(value)) {
+            errors.email.innerText = 'Email không hợp lệ';
+        } else {
+            errors.email.style.display = "none";
+            formElements.email.style.borderColor = "#F4F6F8";
+            return true;
+        }
+        formElements.email.style.borderColor = "red";
+        errors.email.style.display = "block";
+        return false;
+    };
 
-phone.addEventListener('blur', (e) => {
-    const values = e.target.value;
-    const element = document.getElementById('errorPhone');
-    var phoneNum = /^0\d{9,10}$/;
-    console.log(phoneNum.test(values))
-    if (values === "") {
-        element.innerText = error
-        phone.style.borderColor = "red";
-        element.style.display = "block"
-    } else if(!phoneNum.test(values)){
-        element.innerText = 'Số điện thoai không hợp lệ'
-        phone.style.borderColor = "red";
-        element.style.display = "block"
-    }else{
-        phone.style.borderColor = "#F4F6F8"
-        element.style.display = "none"
-    }
-})
-title.addEventListener('blur', (e) => {
-    const values = e.target.value;
-    const element = document.getElementById('errorTitle')
-    validationInput(values, element, title)
-})
-company.addEventListener('blur', (e) => {
-    const values = e.target.value;
-    const element = document.getElementById('errorCompany')
-    validationInput(values, element, company)
-})
-scale.addEventListener('blur', (e) => {
-    const values = e.target.value;
-    const element = document.getElementById('errorScale')
-    validationInput(values, element, scale)
-})
-buttonSubmit.addEventListener("click", function (event) {
-    event.preventDefault();
-    const isLoading = document.getElementById('isLoading')
-    const isContentSubmit = document.getElementById('content-submit')
-    const modalSuccsess = document.getElementById('modal-success');
-    const modalForm = document.getElementById('modal-form');
-    isLoading.style.display = "block";
-    isContentSubmit.style.display = 'none';
-    fetch("https://docs.google.com/forms/d/e/1FAIpQLSfmwhKV6tnRFg9jadylw2a8AiEVgpHT_E3p5_OwwWR6Rz-OMQ/formResponse", {
-        method: "POST",
-        body: new URLSearchParams({
-            'entry.2067157562': name.value,
-            'entry.1204097896': email.value,
-            'entry.1401283432': phone.value,
-            'entry.425009858': title.value,
-            'entry.636440658': company.value,
-            'entry.234823845': scale.value,
-        }),
-        mode: "no-cors",
-        redirect: "follow",
-        referrer: "no-referrer"
-    }).then(response => {
-        isLoading.style.display = "none";
-        isContentSubmit.style.display = 'block';
-        modalSuccsess.classList.remove('hidden');
-        modalForm.classList.add('hidden');
-        buttonSubmit.disabled = true;
-    }).catch(error => {
-        console.error("Error submitting form:", error);
-    }).finally(() => {
-        isLoading.style.display = "none";
-        isContentSubmit.style.display = 'block';
-        buttonSubmit.disabled = false;
-    })
+    const validatePhone = (value) => {
+        if (!value) {
+            errors.phone.innerText = errorText;
+        } else if (!phoneRegex.test(value)) {
+            errors.phone.innerText = 'Số điện thoại không hợp lệ';
+        } else {
+            errors.phone.style.display = "none";
+            formElements.phone.style.borderColor = "#F4F6F8";
+            return true;
+        }
+        formElements.phone.style.borderColor = "red";
+        errors.phone.style.display = "block";
+        return false;
+    };
+
+    formElements.name.addEventListener('blur', (e) => validationInput(e.target.value, errors.name, formElements.name));
+    formElements.email.addEventListener('blur', (e) => validateEmail(e.target.value));
+    formElements.phone.addEventListener('blur', (e) => validatePhone(e.target.value));
+    formElements.title.addEventListener('blur', (e) => validationInput(e.target.value, errors.title, formElements.title));
+    formElements.company.addEventListener('blur', (e) => validationInput(e.target.value, errors.company, formElements.company));
+    formElements.scale.addEventListener('blur', (e) => validationInput(e.target.value, errors.scale, formElements.scale));
+
+    formElements.buttonSubmit.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const isLoading = document.getElementById('isLoading');
+        const isContentSubmit = document.getElementById('content-submit');
+        const modalSuccess = document.getElementById('modal-success');
+        const modalForm = document.getElementById('modal-form');
+
+        if (
+            validationInput(formElements.name.value, errors.name, formElements.name) &&
+            validateEmail(formElements.email.value) &&
+            validatePhone(formElements.phone.value) &&
+            validationInput(formElements.title.value, errors.title, formElements.title) &&
+            validationInput(formElements.company.value, errors.company, formElements.company) &&
+            validationInput(formElements.scale.value, errors.scale, formElements.scale)
+        ) {
+            isLoading.style.display = "block";
+            isContentSubmit.style.display = 'none';
+
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLSfmwhKV6tnRFg9jadylw2a8AiEVgpHT_E3p5_OwwWR6Rz-OMQ/formResponse", {
+                method: "POST",
+                body: new URLSearchParams({
+                    'entry.2067157562': formElements.name.value,
+                    'entry.1204097896': formElements.email.value,
+                    'entry.1401283432': formElements.phone.value,
+                    'entry.425009858': formElements.title.value,
+                    'entry.636440658': formElements.company.value,
+                    'entry.234823845': formElements.scale.value,
+                }),
+                mode: "no-cors",
+                redirect: "follow",
+                referrer: "no-referrer"
+            }).then(() => {
+                isLoading.style.display = "none";
+                isContentSubmit.style.display = 'block';
+                modalSuccess.classList.remove('hidden');
+                document.getElementById('overlay-success').style.opacity = 0.5;
+                document.getElementById('wrapper-success').style.opacity = 1;
+                modalForm.classList.add('hidden');
+                formElements.buttonSubmit.disabled = true;
+            }).catch(error => {
+                console.error("Error submitting form:", error);
+                isLoading.style.display = "none";
+                isContentSubmit.style.display = 'block';
+            }).finally(() => {
+                formElements.buttonSubmit.disabled = false;
+            });
+        }
+    });
 });
 
 
