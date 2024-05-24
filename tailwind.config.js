@@ -28,7 +28,8 @@ export default {
             gridTemplateColumns: {
 
                 // Complex site-specific column configuration
-                'table': '366px 444px minmax(479px, 1fr) ',
+                'table-xl': '366px 444px minmax(479px, 1fr)',
+                'table-lg': '220px 401px minmax(400px, 1fr)',
             },
             translate: {
                 '1/24': '4.1666666%',

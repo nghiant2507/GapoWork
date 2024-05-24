@@ -1,53 +1,97 @@
-<div id="modal" class=" modal-hidden fixed h-screen w-screen top-0 left-0 z-20">
-    <div class='close absolute bg-secondary opacity-60 h-full w-full top-0 left-0 z-[-1]'></div>
-    <div class="w-full lg:flex relative top-1/2 -translate-y-1/2  mx-auto bg-white lg:bg-dark-blue lg:max-w-[1000px]">
-        <span class="close absolute top-4 right-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z"
-                  fill="#18202A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L19.7071 18.2929C20.0976 18.6834 20.0976 19.3166 19.7071 19.7071C19.3166 20.0976 18.6834 20.0976 18.2929 19.7071L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z"
-                  fill="#18202A"/>
-            </svg>
-        </span>
-        <div class="hidden lg:flex lg:flex-col lg:gap-6 lg:w-[560px] lg:h-full lg:p-6 text-white">
-            <div>
-                <h3 class="font-heading text-[32px] leading-10">Phương án tốt nhất thay thế cho Workplace</h3>
-                <p class="text-content mt-4">Kèm chuyển đổi dữ liệu và triển khai, không mất thêm phí để hỗ trợ khách
-                    hàng.</p>
+<div
+        id="modal-form"
+        data-modal-target
+        class="hidden">
+    <div class="flex items-center justify-center fixed inset-0 z-50">
+        <div
+                data-modal-close
+                data-modal-overlay
+                tabindex="-1"
+                data-class-out="opacity-0"
+                data-class-in="opacity-50"
+                class="opacity-0 fixed inset-0 w-full z-40 transition-opacity duration-300 bg-black select-none"></div>
+        <div
+                data-modal-wrapper
+                data-class-out="opacity-0 translate-y-5"
+                data-class-in="opacity-100 translate-y-0"
+                class="opacity-0 translate-y-5 w-full z-50 lg:max-w-[1000px] max-h-screen scrolling-touch transition-all duration-300 bg-white flex flex-col transform shadow-xl rounded-md m-5">
+            <div class="w-full lg:flex relative mx-auto bg-white lg:bg-dark-blue ">
+                <button
+                        data-modal-close
+                        aria-label="Close"
+                        class="absolute top-4 right-4 p-1 opacity-20 hover:opacity-70 hover:rounded-full hover:bg-light-gray ease-out duration-300">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z"
+                              fill="#18202A"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L19.7071 18.2929C20.0976 18.6834 20.0976 19.3166 19.7071 19.7071C19.3166 20.0976 18.6834 20.0976 18.2929 19.7071L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z"
+                              fill="#18202A"/>
+                    </svg>
+                </button>
+                <div class="hidden lg:flex lg:flex-col lg:gap-6 lg:w-[560px] lg:h-full lg:p-6 text-white">
+                    <div>
+                        <h3 class="font-heading text-[32px] leading-10">Phương án tốt nhất thay thế cho Workplace</h3>
+                        <p class="text-content mt-4">Kèm chuyển đổi dữ liệu và triển khai, không mất thêm phí để hỗ trợ
+                            khách
+                            hàng.</p>
+                    </div>
+                    <img src="/images/background/bg-modal.png" alt="Gapo Work" class="w-full h-auto rounded-xl">
+                </div>
+                <div class="pt-10 pb-12 px-6 bg-white lg:flex-1">
+                    <p class="text-lg font-medium text-[#151917]">Nhập thông tin đăng ký</p>
+                    <form class="grid grid-cols-2 gap-4 mt-6 text-form-black text-form font-semibold">
+                        <label class="col-span-2 flex flex-col gap-1">
+                            <p>Họ tên <span class="text-form-red">*</span></p>
+                            <input id="nameInput" class="input-form" type="text"/>
+                            <span id="errorName" class="text-red font-normal text-xs"></span>
+                        </label>
+                        <label class="col-span-2 flex flex-col gap-1">
+                            <p>Email <span class="text-form-red">*</span></p>
+                            <input id="emailInput" class="input-form" type="text"/>
+                            <span id="errorEmail" class="text-red font-normal text-xs"></span>
+                        </label>
+                        <label class="flex flex-col gap-1">
+                            <p>Số điện thoại <span class="text-form-red">*</span></p>
+                            <input id="phoneInput" class="input-form" type="text"/>
+                            <span id="errorPhone" class="text-red font-normal text-xs"></span>
+                        </label>
+                        <label class="flex flex-col gap-1">
+                            <p>Chức danh <span class="text-form-red">*</span></p>
+                            <select id="titleInput" name="title" class="input-form">
+                                <option value=""></option>
+                                <option value="CEO/Founder/Chủ tịch">CEO/Founder/Chủ tịch</option>
+                                <option value="Giám đốc (CTO, CFO,...)">Giám đốc (CTO, CFO,...)</option>
+                                <option value="Giám đốc/ Trưởng phòng nhân sự">Giám đốc/ Trưởng phòng nhân sự</option>
+                                <option value="Nhân viên (Staff)">Nhân viên</option>
+                                <option value="Vị trí khác (Other)">Vị trí khác</option>
+                            </select>
+                            <span id="errorTitle" class="text-red font-normal text-xs"></span>
+                        </label>
+                        <label class="flex flex-col gap-1">
+                            <p>Công ty <span class="text-form-red">*</span></p>
+                            <input id="companyInput" class="input-form" type="text"/>
+                            <span id="errorCompany" class="text-red font-normal text-xs"></span>
+                        </label>
+                        <label class="flex flex-col gap-1">
+                            <p>Quy mô <span class="text-form-red">*</span></p>
+                            <select id="scaleInput" name="scaleInput" class="input-form">
+                                <option value=""></option>
+                                <option value="Dưới 50">Dưới 50</option>
+                                <option value="100 - 300">100 - 300</option>
+                                <option value="300 - 500">300 - 500</option>
+                                <option value="500 - 1000">500 - 1000</option>
+                                <option value="trên 1000">Trên 1000</option>
+                            </select>
+                            <span id="errorScale" class="text-red font-normal text-xs"></span>
+                        </label>
+                        <button id="submitBtn" type="button" class="flex justify-center items-center rounded-xl col-span-2 w-full py-3 bg-primary text-white mt-2">
+                            <span id="isLoading" class="hidden border-white h-6 w-6 animate-spin rounded-full border-4 border-t-primary" ></span>
+                            <span id="content-submit">Gửi thông tin</span>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <img src="/images/background/bg-modal.png" alt="Gapo Work" class="w-full h-auto rounded-xl">
-        </div>
-        <div class="pt-10 pb-12 px-6 bg-white lg:flex-1">
-            <p class="text-lg font-medium text-[#151917]">Nhập thông tin đăng ký</p>
-            <form class="grid grid-cols-2 gap-4 mt-6 text-form-black text-form font-semibold">
-                <label class="col-span-2 flex flex-col gap-1">
-                    <p>Họ tên <span class="text-form-red">*</span></p>
-                    <input class="rounded-xl bg-form-gray border border-form-gray h-12 w-full" type="text"/>
-                </label>
-                <label class="col-span-2 flex flex-col gap-1">
-                    <p>Email <span class="text-form-red">*</span></p>
-                    <input class="rounded-xl bg-form-gray border border-form-gray h-12 w-full" type="text"/>
-                </label>
-                <label class="flex flex-col gap-1">
-                    <p>Số điện thoại <span class="text-form-red">*</span></p>
-                    <input class="rounded-xl bg-form-gray border border-form-gray h-12 w-full" type="text"/>
-                </label>
-                <label class="flex flex-col gap-1">
-                    <p>Chức danh <span class="text-form-red">*</span></p>
-                    <input class="rounded-xl bg-form-gray border border-form-gray h-12 w-full" type="text"/>
-                </label>
-                <label class="flex flex-col gap-1">
-                    <p>Công ty <span class="text-form-red">*</span></p>
-                    <input class="rounded-xl bg-form-gray border border-form-gray h-12 w-full" type="text"/>
-                </label>
-                <label class="flex flex-col gap-1">
-                    <p>Quy mô <span class="text-form-red">*</span></p>
-                    <input class="rounded-xl bg-form-gray border border-form-gray h-12 w-full" type="text"/>
-                </label>
-                <button class="rounded-xl col-span-2 w-full py-3 bg-primary text-white mt-2">Gửi thông tin</button>
-            </form>
         </div>
     </div>
 </div>

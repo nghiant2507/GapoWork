@@ -12,6 +12,18 @@
     .page-heading {
         @apply font-heading text-black text-2xl font-bold -tracking-[.03em] md:text-4xl xl:text-5xl xl:leading-normal
     }
+    .col-1-table {
+        @apply flex lg:flex-col xl:flex-row gap-4 font-bold
+    }
+    .row-table {
+        @apply grid lg:grid-cols-table-lg xl:grid-cols-table-xl border-b border-[#E9E9EA]
+    }
+    .button{
+        @apply font-bold py-3 w-full rounded-xl bg-primary text-white mt-3 text-base md:mt-5 md:w-[239px] md:text-xl lg:leading-10 xl:py-2 hover:bg-dark-primary
+    }
+    .input-form{
+       @apply rounded-xl bg-form-gray border border-form-gray h-12 w-full py-1 px-3
+    }
 }
 
 * {
