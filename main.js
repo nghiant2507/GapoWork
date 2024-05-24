@@ -52,16 +52,20 @@ email.addEventListener('blur', (e) => {
         element.style.display = "none"
     }
 })
+
 phone.addEventListener('blur', (e) => {
     const values = e.target.value;
     const element = document.getElementById('errorPhone');
     var phoneNum = /^0\d{9,10}$/;
+    console.log(phoneNum.test(values))
     if (values === "") {
         element.innerText = error
         phone.style.borderColor = "red";
         element.style.display = "block"
     } else if(!phoneNum.test(values)){
         element.innerText = 'Số điện thoai không hợp lệ'
+        phone.style.borderColor = "red";
+        element.style.display = "block"
     }else{
         phone.style.borderColor = "#F4F6F8"
         element.style.display = "none"
