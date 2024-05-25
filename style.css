@@ -31,59 +31,59 @@
     margin: 0 0;
 }
 
-@font-face {
-    font-family: 'Inter';
-    src: url('./font/Inter/Inter-Regular.eot'),
-    url('./font/Inter/Inter-Regular.woff2') format('woff2'),
-    url('./font/Inter/Inter-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Inter';
-    src: url('./font/Inter/Inter-Medium.eot'),
-    url('./font/Inter/Inter-Medium.woff2') format('woff2'),
-    url('./font/Inter/Inter-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
+/*@font-face {*/
+/*    font-family: 'Inter';*/
+/*    src: url('./font/Inter/Inter-Regular.eot'),*/
+/*    url('./font/Inter/Inter-Regular.woff2') format('woff2'),*/
+/*    url('./font/Inter/Inter-Regular.woff') format('woff');*/
+/*    font-weight: 400;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Inter';*/
+/*    src: url('./font/Inter/Inter-Medium.eot'),*/
+/*    url('./font/Inter/Inter-Medium.woff2') format('woff2'),*/
+/*    url('./font/Inter/Inter-Medium.woff') format('woff');*/
+/*    font-weight: 500;*/
+/*    font-style: normal;*/
+/*}*/
 @font-face {
     font-family: 'SF-Pro';
     src: url('./font/SF-Pro-Font/SF-Pro-Display-Semibold.otf');
     font-weight: 600;
     font-style: normal;
 }
-@font-face {
-    font-family: 'Inter';
-    src: url('./font/Inter/Inter-Medium.eot'),
-    url('./font/Inter/Inter-Medium.woff2') format('woff2'),
-    url('./font/Inter/Inter-Medium.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Nunito-San';
-    src: url('./font/NunitoSans/NunitoSans-Bold.eot'),
-    url('./font/NunitoSans/NunitoSans-Bold.woff2') format('woff2'),
-    url('./font/NunitoSans/NunitoSans-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Nunito-San';
-    src: url('./font/NunitoSans/NunitoSans-SemiBold.eot'),
-    url('./font/NunitoSans/NunitoSans-SemiBold.woff2') format('woff2'),
-    url('./font/NunitoSans/NunitoSans-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
+/*@font-face {*/
+/*    font-family: 'Inter';*/
+/*    src: url('./font/Inter/Inter-Medium.eot'),*/
+/*    url('./font/Inter/Inter-Medium.woff2') format('woff2'),*/
+/*    url('./font/Inter/Inter-Medium.woff') format('woff');*/
+/*    font-weight: 600;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Nunito-San';*/
+/*    src: url('./font/NunitoSans/NunitoSans-Bold.eot'),*/
+/*    url('./font/NunitoSans/NunitoSans-Bold.woff2') format('woff2'),*/
+/*    url('./font/NunitoSans/NunitoSans-Bold.woff') format('woff');*/
+/*    font-weight: 700;*/
+/*    font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Nunito-San';*/
+/*    src: url('./font/NunitoSans/NunitoSans-SemiBold.eot'),*/
+/*    url('./font/NunitoSans/NunitoSans-SemiBold.woff2') format('woff2'),*/
+/*    url('./font/NunitoSans/NunitoSans-SemiBold.woff') format('woff');*/
+/*    font-weight: 600;*/
+/*    font-style: normal;*/
+/*}*/
 
-@font-face {
-    font-family: 'Google-Font';
-    src: url('./font/OpenFont/OpenSans-SemiBold.ttf');
-    font-weight: 600;
-    font-style: normal;
-}
+/*@font-face {*/
+/*    font-family: 'Google-Font';*/
+/*    src: url('./font/OpenFont/OpenSans-SemiBold.ttf');*/
+/*    font-weight: 600;*/
+/*    font-style: normal;*/
+/*}*/
 
 body {
     overflow-x: hidden;
