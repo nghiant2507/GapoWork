@@ -6,6 +6,5 @@ export default {
         handlebars({
             partialDirectory: resolve(__dirname, 'components/vi'),
         }),
-        singleFile()
     ],
 };
