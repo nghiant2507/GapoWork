@@ -6,9 +6,6 @@ export default {
     theme: {
         fontFamily: {
             'heading': ['Nunito Sans', 'sans-serif'],
-            'content': ['Inter', 'sans-serif'],
-            'google-font': ['Google-Font', 'sans-serif'],
-            'sf-pro-font':['SF-Pro', 'sans-serif'],
         },
         container: {
             sm: '540px',
