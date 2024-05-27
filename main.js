@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isLoading.style.display = "block";
             isContentSubmit.style.display = 'none';
 
-            fetch("https://docs.google.com/forms/d/e/1FAIpQLSfmwhKV6tnRFg9jadylw2a8AiEVgpHT_E3p5_OwwWR6Rz-OMQ/formResponse", {
+            fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSfmwhKV6tnRFg9jadylw2a8AiEVgpHT_E3p5_OwwWR6Rz-OMQ/formResponse", {
                 method: "POST",
                 body: new URLSearchParams({
                     'entry.2067157562': formElements.name.value,
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'entry.1401283432': formElements.phone.value,
                     'entry.425009858': formElements.title.value,
                     'entry.636440658': formElements.company.value,
-                    'entry.234823845': formElements.scale.value,
+                    'entry.234823845': formElements.scale.value
                 }),
                 mode: "no-cors",
                 redirect: "follow",
