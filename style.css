@@ -67,3 +67,10 @@ tbody tr:nth-child(2n+1){
     opacity: 1;
     transform-origin: center;
 }
+#titleInput,#scaleInput{
+    position: relative;
+    background: url(/images/arrow-down.svg) no-repeat right;
+    background-position-x: calc(100% - 8px);
+    -webkit-appearance: none;
+}
+
