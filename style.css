@@ -69,7 +69,7 @@ tbody tr:nth-child(2n+1){
 }
 #titleInput,#scaleInput{
     position: relative;
-    background: url(/images/arrow-down.svg) no-repeat right;
+    background: url(/images/arrow-down.svg) no-repeat #F4F6F8 right;
     background-position-x: calc(100% - 8px);
     -webkit-appearance: none;
 }
