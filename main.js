@@ -132,6 +132,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const dropbtn = document.querySelector('.btn-language');
+    const dropdownContent = document.querySelector('.content-language');
+
+    dropbtn.addEventListener('click', function (event) {
+        dropdownContent.classList.toggle('active-language');
+        event.stopPropagation();
+    });
+
+    window.addEventListener('click', function (e) {
+        if (!dropdownContent.contains(e.target) && !dropbtn.contains(e.target)) {
+            dropdownContent.classList.remove('active-language');
+        }
+    });
+});
 // Modal
 
 

@@ -74,3 +74,6 @@ tbody tr:nth-child(2n+1){
     -webkit-appearance: none;
 }
 
+.active-language{
+    display: block;
+}
