@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const errorText = "Không được để trống ";
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^0\d{9,10}$/;
 
     const validationInput = (value, errorElement, inputElement) => {
         if (!value) {
@@ -65,8 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const validatePhone = (value) => {
         if (!value) {
             errors.phone.innerText = errorText;
-        } else if (!phoneRegex.test(value)) {
-            errors.phone.innerText = 'Số điện thoại không hợp lệ';
         } else {
             errors.phone.style.display = "none";
             formElements.phone.style.borderColor = "#F4F6F8";
